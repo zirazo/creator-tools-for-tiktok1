@@ -10,20 +10,16 @@ interface VideoPreviewCardProps {
 const DownloadButton: React.FC<{ href: string; label: string; quality: string; videoId: string; authorNickname: string; }> = ({ href, label, quality, videoId, authorNickname }) => {
     const [isDownloading, setIsDownloading] = useState(false);
 
-    const handleDownload = async () => {
-        // This method fetches the file as a blob and creates a temporary link
-        // to trigger a download, which works across most modern browsers.
+    const handleDownload = () => {
+        // This method creates a temporary anchor link with a download attribute.
+        // It's a simpler approach that avoids CORS issues that can arise with fetch().
+        // Browser support for the 'download' attribute on cross-origin
+        // links can vary, but this is generally more reliable on mobile.
         setIsDownloading(true);
         try {
-            const response = await fetch(href);
-            if (!response.ok) {
-                throw new Error(`Failed to fetch file: ${response.statusText}`);
-            }
-            const blob = await response.blob();
-            const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.style.display = 'none';
-            a.href = url;
+            a.href = href;
             
             const fileExtension = href.split('.').pop() || (label === 'Audio Only' ? 'mp3' : 'mp4');
             const fileName = `${authorNickname}_${videoId}_${quality}.${fileExtension}`.replace(/\s/g, '_');
@@ -31,13 +27,16 @@ const DownloadButton: React.FC<{ href: string; label: string; quality: string; v
 
             document.body.appendChild(a);
             a.click();
-            
-            window.URL.revokeObjectURL(url);
             document.body.removeChild(a);
+            
+            // Since we can't track the download's progress with this method,
+            // we'll reset the button state after a short delay.
+            setTimeout(() => {
+                setIsDownloading(false);
+            }, 2000);
         } catch (error) {
-            console.error('Download error:', error);
-            alert('Could not download the file. The resource might be unavailable or blocked by your browser.');
-        } finally {
+            console.error('Download initiation error:', error);
+            alert('An unexpected error occurred while trying to start the download.');
             setIsDownloading(false);
         }
     };
