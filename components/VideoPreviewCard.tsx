@@ -11,6 +11,17 @@ const DownloadButton: React.FC<{ href: string; label: string; quality: string; v
     const [isDownloading, setIsDownloading] = useState(false);
 
     const handleDownload = async () => {
+        // Use a simple regex to detect mobile devices.
+        // On mobile, programmatically triggering downloads via blob URLs is unreliable, especially on iOS.
+        // Opening the link in a new tab is a more robust solution that lets the browser handle the download.
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+        if (isMobile) {
+            window.open(href, '_blank');
+            return;
+        }
+
+        // Desktop download logic
         setIsDownloading(true);
         try {
             const response = await fetch(href);
