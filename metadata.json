@@ -1,0 +1,5 @@
+{
+  "name": "TikTok Video Downloader",
+  "description": "An application to download TikTok videos without watermarks by providing the video URL. Users can select from available video qualities.",
+  "requestFramePermissions": []
+}
