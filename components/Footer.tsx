@@ -12,7 +12,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
             <div className="container mx-auto px-4 py-8">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
                     <div>
-                        <h3 className="font-bold text-lg text-white mb-2">Video Insights</h3>
+                        <h3 className="font-bold text-lg text-white mb-2">TIKTOK VIDEO DOWNLOADER</h3>
                         <p className="text-gray-400 text-sm">Analyze and explore TikTok video metadata with ease.</p>
                     </div>
                     <div>
@@ -30,7 +30,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
                     </div>
                 </div>
                 <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-500 text-xs">
-                    <p>&copy; {new Date().getFullYear()} Video Insights. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} TIKTOK VIDEO DOWNLOADER. All rights reserved.</p>
                     <p className="mt-2">This service is not affiliated with TikTok or ByteDance Ltd. Please respect the intellectual property rights of the content owners.</p>
                 </div>
             </div>
