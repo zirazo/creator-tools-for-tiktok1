@@ -52,7 +52,7 @@ export const HomePage: React.FC = () => {
         <div className="flex justify-center items-center gap-4 mb-4">
           <TikTokLogo className="w-12 h-12 md:w-16 md:h-16" />
           <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-tiktok-blue to-tiktok-red">
-            Video Insights for TikTok
+            TIKTOK video downloader
           </h1>
         </div>
         <p className="text-md md:text-lg text-gray-400 max-w-2xl mx-auto">
