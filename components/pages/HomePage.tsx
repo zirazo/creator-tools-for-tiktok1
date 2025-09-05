@@ -86,8 +86,8 @@ export const HomePage: React.FC = () => {
             </div>
             <div className="flex flex-col items-center">
                 <div className="bg-tiktok-red/20 p-4 rounded-full mb-4 border-2 border-tiktok-red"><TikTokLogo className="w-8 h-8"/></div>
-                <h3 className="font-bold mb-2">2. Fetch Data</h3>
-                <p className="text-gray-400 text-sm">Click the "Fetch" button. Our tool will securely retrieve the public metadata for the video.</p>
+                <h3 className="font-bold mb-2">2. Get Video</h3>
+                <p className="text-gray-400 text-sm">Click the "Downloader" button. Our tool will securely retrieve the public metadata for the video.</p>
             </div>
             <div className="flex flex-col items-center">
                  <div className="bg-gray-700 p-4 rounded-full mb-4 border-2 border-gray-500"><DownloadIcon className="w-8 h-8 text-white"/></div>
