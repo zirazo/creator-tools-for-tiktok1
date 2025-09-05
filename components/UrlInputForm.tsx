@@ -33,7 +33,7 @@ export const UrlInputForm: React.FC<UrlInputFormProps> = ({ url, setUrl, onSubmi
           className="absolute inset-y-0 right-0 m-1.5 px-4 py-2 bg-tiktok-red text-white font-semibold rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-tiktok-red disabled:bg-gray-600 disabled:cursor-not-allowed transition-colors duration-200"
           disabled={isLoading}
         >
-          {isLoading ? 'Fetching...' : 'Fetch'}
+          {isLoading ? 'Fetching...' : 'Downloader'}
         </button>
       </div>
     </form>
